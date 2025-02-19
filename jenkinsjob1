@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+      stages {
+        stage('stage1') {
+            steps {
+                echo 'Hello World from job1'
+            }
+        }
+        stage('trigger job2'){
+            steps {
+            build 'job2'
+            }
+        }
+        stage('stage2'){
+            steps {
+            echo 'back from job2'
+            }
+        }
+        
+    }
+}
